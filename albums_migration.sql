@@ -1,12 +1,28 @@
 USE codeup_test_db;
 DROP TABLE IF EXISTS albums;
 CREATE TABLE IF NOT EXISTS albums (
-    id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    artist VARCHAR(20),
-    name VARCHAR(20),
-    release_date DATE,
+    id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    artist VARCHAR(100) NOT NULL,
+    name VARCHAR(100),
+    release_date VARCHAR(20),
     sales FLOAT,
-    genre VARCHAR(20)
+    genre CHAR(200),
+    PRIMARY KEY (id)
 );
 DESCRIBE albums;
 SHOW CREATE TABLE albums;
+
+INSERT INTO albums (artist, name, release_date, sales, genre) VALUES ('Sublime', 'Self-Titled', 1996, 5000000, 'Ska punk, alt rock');
+INSERT INTO albums (artist, name, release_date, sales, genre)
+VALUES ('Devendra Banahrt', 'Smokey Rolls Down Thunder Canyon', 2007, 42069, 'alternative, Indie folk');
+INSERT INTO albums (artist, name, release_date, sales, genre)
+VALUES ('The Black Angels', 'Phosephene Dream', 2010, 42069, 'Psych rock');
+INSERT INTO albums (artist, name, release_date, sales, genre) VALUES ('Portishead', 'Dummy', 1994, 42069, 'Trip-hop');
+INSERT INTO albums (artist, name, release_date, sales, genre) VALUES ('Pink Floyd', 'The Dark Side of the Moon', 1973, 42069,'Psych-rock');
+
+SELECT * FROM albums WHERE release_date < 2000;
+SELECT artist FROM albums WHERE sales > 1000000;
+
+UPDATE albums SET artist = 'Portishead2'
+WHERE artist = 'Portishead';
+
