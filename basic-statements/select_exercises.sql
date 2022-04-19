@@ -1,6 +1,8 @@
 USE codeup_test_db;
 
 SELECT name AS 'The name of all albums by Pink Floyd.' FROM albums WHERE artist = 'Pink Floyd';
+# or:
+# SELECT 'The name of all albums by Pink Floyd.' AS caption, name FROM albums WHERE artist = 'Pink Floyd';
 
 SELECT release_date AS 'The year Sgt. Pepper''s Lonely Hearts Club Band was released' FROM albums WHERE name = 'Sgt. Pepper''s Lonely Hearts Club Band';
 
@@ -10,4 +12,4 @@ SELECT name AS 'Which albums were released in the 1990s' FROM albums WHERE relea
 
 SELECT name AS 'Which albums had less than 20 million certified sales' FROM albums WHERE sales < 20;
 
-SELECT name AS 'All the albums with a genre of "Rock".' FROM albums WHERE genre = 'rock';
+SELECT name AS 'All the albums with a genre of "Rock".' FROM albums WHERE genre like '%rock%';

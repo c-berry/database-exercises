@@ -18,4 +18,4 @@ SELECT name AS 'All albums by Michael Jackson' FROM albums WHERE artist = 'Micha
 UPDATE albums
 SET artist = 'Peter Jackson'
 WHERE artist = 'Michael Jackson';
-SELECT name, artist AS 'All albums by Peter Jackson' FROM albums WHERE artist = 'Peter Jackson';
+SELECT name, artist AS 'All albums by Peter Jackson' FROM albums WHERE artist = 'Peter Jackson' OR artist = 'Michael Jackson';
