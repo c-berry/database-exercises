@@ -1,8 +1,7 @@
 USE employees;
 
-
-SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya');
 # 2.
+# SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya');
 SELECT first_name, last_name
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
@@ -16,15 +15,21 @@ WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 ORDER BY first_name,
 last_name;
 
-
-SELECT * FROM employees WHERE last_name LIKE 'E%';
 # 4.
-SELECT * FROM employees WHERE last_name LIKE 'E%'
+SELECT first_name, last_name
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+ORDER BY last_name,
+first_name;
+
+# 5.
+# SELECT * FROM employees WHERE last_name LIKE 'E%';
+SELECT * FROM employees WHERE last_name LIKE '%E%'
 ORDER BY emp_no;
 
 
-# 5.
-SELECT * FROM employees WHERE last_name LIKE 'E%'
+# 6.
+SELECT * FROM employees WHERE last_name LIKE '%E%'
 ORDER BY emp_no DESC;
 
 
