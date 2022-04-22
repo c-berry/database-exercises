@@ -95,3 +95,34 @@ FROM employees e
          JOIN dept_manager dm on d.dept_no = dm.dept_no
          JOIN employees ee on dm.emp_no = ee.emp_no
 WHERE YEAR(de.to_date) = 9999 AND YEAR(dm.to_date) = 9999;
+
+##### sub-queries notes =>
+
+SELECT first_name, last_name, birth_date
+FROM employees
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_manager
+    );
+
+USE codeup_test_db;
+
+INSERT INTO preferences (person_id, album_id)
+VALUES (
+        (SELECT id FROM persons WHERE first_name = 'Tareq'),
+        (SELECT id FROM albums WHERE name = 'Rumors')
+);
+
+SELECT first_name, name FROM persons
+    JOIN preferences p ON persons.id = p.person_id
+    JOIN albums a ON p.album_id = a.id
+WHERE first_name = 'Tareq';
+
+UPDATE preferences
+SET album_id = (SELECT  id FROM albums WHERE name = 'Led Zeppelin IV')
+WHERE  album_id = (SELECT id FROM albums WHERE name = 'Rumors')
+AND person_id = (SELECT id FROM persons WHERE  first_name = 'Tareq');
+
+SELECT first_name, name FROM  persons
+JOIN albums a ON a.id = persons.album_id
+WHERE  first_name = 'Tareq';
