@@ -73,7 +73,10 @@ INSERT INTO preferences (person_id, album_id) VALUES (1, 12), (1, 5), (1, 22), (
 
 SELECT * FROM preferences;
 
-SELECT p.first_name AS name, a.name AS album FROM persons p JOIN preferences pf ON p.id = pf.person_id JOIN albums a ON pf.album_id = a.id;
+SELECT p.first_name AS name, a.name AS album
+FROM persons p
+    JOIN preferences pf ON p.id = pf.person_id
+    JOIN albums a ON pf.album_id = a.id;
 
 #
 
